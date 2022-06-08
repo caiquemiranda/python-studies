@@ -27,4 +27,4 @@ while total_tentativas > 0 :
     total_tentativas -= 1
 
 print(f'Eu pensei no numero : {numero_secreto}')
-print('Tente de novoo jogo!')
+print('Tente de novo o jogo!')
