@@ -1,88 +1,123 @@
-### Class
+## Class
 
 Python is an Language that supports the Object Oriented Programming paradigm. Like other OOP languages, Python has classes which are defined wireframes of objects. Python supports class inheritance. A class may have many subclasses but may only inherit directly from one superclass.
 
 > Syntax:
 
+```{python}
 class ClassName(object):
+    
     """This is a class"""
+    
     class_variable
+    
     def _init_(self,*args):
         self.args = args
+    
     def _repr_(self):
         return "Something to represent the object as a string"
+    
     def other_method(self,*args):
         # do something else
+```
 
 > Example:
 
+```{python}
 class Horse(object):
+
     """Horse represents a Horse"""
+
     species = "Equus ferus caballus"
+
     def _init_(self,color,weight,wild=False):
         self.color = color
         self.weight = weight
         self.wild = wild
+
     def _repr_(self):
         return "%s horse weighing %f and wild status is %b" % (self.color,self.weight,self.wild)
+
     def make_sound(self):
         print "neighhhh" 
+
     def movement(self):
         return "walk"
+```
 
-Syntax
+> Syntax:
 
+```{python}
 class ClassName(SuperClass):
     # same as above
     # use 'super' keyword to get from above
+```
 
-Example
+> Example
 
+```{python}
 class RaceHorse(Horse):
+    
     """A faster horse that inherits from Horse"""
+    
     def movement(self):
         return "run"
+    
     def movement_slow(self):
         return super(Horse,self).movement()
+    
     def _repr_(self):
         return "%s race horse weighing %f and wild status is %b" (self.color,self.weight,self.wild)
+```
 
+```{python}
 >> horse3 = RaceHorse("white",200)
 >> print horse3.movement_slow()
 "walk"
 >> print horse3.movement()
 "run"
+```
 
-Comments
-Single-line Comments
+## Comments
+
+### Single-line Comments
 Augmenting code with human readable descriptions can help document design decisions.
 
-Example
+> Example:
 
+```{python}
 # this is a single line comment.
+```
 
-Multi-line Comments
+### Multi-line Comments
+
 Some comments need to span several lines, use this if you have more than 4 single line comments in a row.
 
-Example
+> Example:
 
+```{python}
 '''
 this is
 a multi-line
 comment, i am handy for commenting out whole
 chunks of code very fast
 '''
+```
 
-Dictionaries
+## Dictionaries
+
 Dictionaries are Python's built-in associative data type. A dictionary is made of key-value pairs where each key corresponds to a value. Like sets, dictionaries are unordered. A few notes about keys and values: The key must be immutable and hashable while the value can be of any type. Common examples of keys are tuples, strings and numbers. A single dictionary can contain keys of varying types and values of varying types.
 
-Syntax
+> Syntax:
 
+```{python}
 dict() #creates new empty dictionary
 {} #creates new empty dictionary
+```
 
-Example
+> Example:
 
+```{python}
 >> my_dict = {}
 >> content_of_value1 = "abcd"
 >> content_of_value2 = "wxyz"
@@ -92,30 +127,38 @@ Example
 {'key_name1':"abcd", 'key_name2':"wxyz"}
 >> my_dict.get("key_name2")
 "wxyz"
+```
 
-Syntax
-
+> Syntax: 
+```{python}
 {key1:value1,key2:value2}
+```
 
-Example
+> Example: 
 
+```{python}
 >> my_dict = {"key1":[1,2,3],"key2":"I am a string",123:456}
 >> my_dict["key1"] #[1,2,3]
 >> my_dict[123] #456
 >> my_dict["new key"] = "New value"
 >> print my_dict
 {"key2":"I am a string", "new key":"New value", "key1":[1,2,3],123:456}
+```
 
-Functions
+## Functions
+
 Python functions can be used to abstract pieces of code to use elsewhere.
 
-Syntax
+> Syntax: 
 
+```{python}
 def function_name(parameters):
   # Some code here
+```
 
-Example
+> Example:
 
+```{python}
 def add_two(a, b):
   c = a + b
   return c
@@ -123,26 +166,33 @@ def add_two(a, b):
 # or without the interim assignment to c
 def add_two(a, b):
   return a + b
+```
 
-Syntax
+> Syntax:
 
+```{python}
 def function_name(parameters, named_default_parameter=value):
   # Some code here
+```
 
-Example
+> Example: 
 
+```{python}
 def shout(exclamation="Hey!"):
   print exclamation
 
 shout() # Displays "Hey!"
 
 shout("Watch Out!") # Displays "Watch Out!"
+```
 
-Function Objects
+### Function Objects
+
 Python functions are first-class objects, which means that they can be stored in variables and lists and can even be returned by other functions.
 
-Example
+> Example:
 
+```{python}
 # Storing function objects in variables:
 
 def say_hello(name):
@@ -155,9 +205,11 @@ fun = say_hello
 # Now the value of 'fun' is a function object we can use like the original function:
 bar = fun("Bob")
 # Now the value of 'bar' is "Hello, Bob"
+```
 
-Example
+> Example:
 
+```{python}
 # Returning functions from functions
 
 # A simple function
@@ -186,9 +238,11 @@ print produce_greeting_from_eve("Alice") # Displays "Hello, Alice, I'm Eve."
 
 # You can also invoke the function directly if you want:
 print produce_greeting_from("Bob")("Eve") # Displays "Hello, Eve, I'm Bob."
+```
 
-Example
+> Example:
 
+```{python}
 # Using functions in a dictionary instead of long if statements:
 
 # Let's say we have a variable called 'current_action' and we want stuff to happen based on its value:
@@ -210,16 +264,21 @@ response_dict = {
 }
 
 response_dict[current_action]() # Gets the correct function from response_dict and calls it
+```
 
-len()
+## len()
+
 Using len(some_object) returns the number of top-level items contained in the object being queried.
 
-Syntax
+> Syntax:
 
+```{python}
 len(iterable)
+```
 
-Example
+> Example:
 
+```{python}
 >> my_list = [0,4,5,2,3,4,5]
 >> len(my_list)
 7
@@ -227,17 +286,22 @@ Example
 >> my_string = 'abcdef'
 >> len(my_string)
 6
+```
 
-List Comprehensions
+## List Comprehensions
+
 Convenient ways to generate or extract information from lists.
 
-Syntax
+> Syntax: 
 
+```{python}
 [variable for variable in iterable condition]
 [variable for variable in iterable]
+```
 
-Example
+> Example:
 
+```{python}
 >> x_list = [1,2,3,4,5,6,7]
 >> even_list = [num for num in x_list if (num % 2 == 0)]
 >> even_list
@@ -247,12 +311,15 @@ Example
 >> A_list = [duo for duo in m_list if ('A' in duo)]
 >> A_list
 ['AB', 'AC', 'DA']
+```
 
-Lists
+## Lists
+
 A Python data type that holds an ordered collection of values, which can be of any type. Lists are Python's ordered mutable data type. Unlike tuples, lists can be modified in-place.
 
-Example
+> Example:
 
+```{python}
 >> x = [1, 2, 3, 4]
 >> y = ['spam', 'eggs']
 >> x
@@ -267,13 +334,16 @@ Example
 >> y += ['beans']
 >> y
 ['spam', 'eggs', 'mash', 'beans']
+```
 
-Loops
-For Loops
+## Loops
+
+### For Loops
 Python provides a clean iteration syntax. Note the colon and indentation.
 
-Example
+> Example:
 
+```{python}
 >> for i in range(0, 3):
 >>     print(i*2)
 0
@@ -295,29 +365,37 @@ w
 i
 f
 t
+```
 
-While Loops
+### While Loops
+
 A While loop permits code to execute repeatedly until a certain condition is met. This is useful if the number of iterations required to complete a task is unknown prior to flow entering the loop.
 
-Syntax
+> Syntax:
 
+```{python}
 while condition:
     //do something
+```
 
-Example
+> Example:
 
+```{python}
 >> looping_needed = True
 >>
 >> while looping_needed:
 >>     # some operation on data
 >>     if condition:
 >>          looping_needed = False
+``` 
 
-print()
+## print()
+
 A function to display the output of a program. Using the parenthesized version is arguably more consistent.
 
-Example
+> Example:
 
+```{python}
 >> # this will work in all modern versions of Python
 >> print("some text here")
 "some text here"
@@ -325,19 +403,24 @@ Example
 >> # but this only works in Python versions lower than 3.x
 >> print "some text here too"
 "some text here too"
+```
 
-range()
+## range()
+
 The range() function returns a list of integers, the sequence of which is defined by the arguments passed to it.
 
-Syntax
+> Syntax:
 
+```{python}
 argument variations:
 range(terminal)
 range(start, terminal)
 range(start, terminal, step_size)
+```
 
-Example
+> Example:
 
+```{python}
 >> range(4)
 [0, 1, 2, 3]
 
@@ -346,12 +429,15 @@ Example
 
 >> range(2, 13, 3)
 [2, 5, 8, 11]
+```
 
-Sets
+## Sets
+
 Sets are collections of unique but unordered items. It is possible to convert certain iterables to a set.
 
-Example
+> Example:
 
+```{python}
 >> new_set = {1, 2, 3, 4, 4, 4,'A', 'B', 'B', 'C'}
 >> new_set
 {'A', 1, 'C', 3, 4, 2, 'B'}
@@ -360,12 +446,15 @@ Example
 >> set_from_list = set(dup_list)
 >> set_from_list
 {1, 2, 3, 4, 5, 6, 7, 8, 55}
+```
 
-Slice
+## Slice
+
 A Pythonic way of extracting "slices" of a list using a special bracket notation that specifies the start and end of the section of the list you wish to extract. Leaving the beginning value blank indicates you wish to start at the beginning of the list, leaving the ending value blank indicates you wish to go to the end of the list. Using a negative value references the end of the list (so that in a list of 4 elements, -1 means the 4th element). Slicing always yields another list, even when extracting a single value.
 
-Example
+> Example:
 
+```{python}
 >> # Specifying a beginning and end:
 >> x = [1, 2, 3, 4]
 >> x[2:3]
@@ -396,16 +485,21 @@ Example
 >> my_string = "Aloha"
 >> my_string[::-1]
 "aholA"
+```
 
-str()
+## str()
+
 Using the str() function allows you to represent the content of a variable as a string, provided that the data type of the variable provides a neat way to do so. str() does not change the variable in place, it returns a 'stringified' version of it. On a more technical note, str() calls the special _str_ method of the object passed to it.
 
-Syntax
+> Syntax:
 
+```{python}
 str(object)
+```
 
-Example
+> Example:
 
+```{python}
 >> # such features can be useful for concatenating strings
 >> my_var = 123
 >> my_var
@@ -417,23 +511,29 @@ Example
 >> my_booking = "DB Airlines Flight " + str(my_var)
 >> my_booking
 'DB Airlines Flight 123'
+```
 
-Strings
+### Strings
+
 Strings store characters and have many built-in convenience methods that let you modify their content. Strings are immutable, meaning they cannot be changed in place.
 
-Example
+> Example:
 
+```{python}
 >> my_string1 = "this is a valid string"
 >> my_string2 = 'this is also a valid string'
 >> my_string3 = 'this is' + ' ' + 'also' + ' ' + 'a string'
 >> my_string3
 "this is also a string"
+```
 
-Tuples
+### Tuples
+
 A Python data type that holds an ordered collection of values, which can be of any type. Python tuples are "immutable," meaning that they cannot be changed once created.
 
-Example
+> Example:
 
+```{python}
 >> x = (1, 2, 3, 4)
 >> y = ('spam', 'eggs')
 
@@ -441,23 +541,30 @@ Example
 >> my_tuple = tuple(my_list)
 >> my_tuple
 (1, 2, 3, 4)
+```
 
-Tuple Assignment
+### Tuple Assignment
+
 Tuples can be expanded into variables easily.
 
-Example
+> Example:
 
+```{python}
 name, age = ("Alice", 19)
 # Now name has the value "Alice" and age has the value 19
 
 # You can also omit the parentheses:
 name, age = "Alice", 19
+```
 
-Variables
+### Variables
+
 Variables are assigned values using the = operator, which is not to be confused with the == sign used for testing equality. A variable can hold almost any type of value such as lists, dictionaries, functions.
 
-Example
+> Example:
 
+```{python}
 >> x = 12
 >> x
 12
+```
